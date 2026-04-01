@@ -1,0 +1,182 @@
+/* --- Root Variables --- */
+:root {
+    --primary: #2c3e50;
+    --accent: #27ae60;
+    --soul: #d35400;
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --white: #ffffff;
+    --text: #333333;
+    /* Warna Media Sosial */
+    --whatsapp: #25D366;
+    --instagram: #E1306C;
+    --tiktok: #000000;
+}
+
+/* --- Base Styles --- */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg-gradient);
+    margin: 0;
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+header {
+    background: var(--primary);
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* --- Navigation --- */
+nav {
+    background: var(--primary);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 0.8rem;
+    margin: 0;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* --- Animasi Muncul --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* --- Profil & Cerita Styles --- */
+.profil-container, .cerita-full {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.cerita-full {
+    border-left: 10px solid var(--soul);
+    text-align: justify;
+}
+
+/* --- HALAMAN KONTAK (MEDIA SOSIAL) --- */
+.sosmed-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.sosmed-card {
+    background: var(--white);
+    padding: 25px;
+    width: 150px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.sosmed-card:hover {
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    color: var(--white);
+}
+
+/* Warna Khusus Hover Sosmed */
+.sosmed-card.whatsapp:hover { background-color: var(--whatsapp); border-color: var(--whatsapp); }
+.sosmed-card.instagram:hover { background-color: var(--instagram); border-color: var(--instagram); }
+.sosmed-card.tiktok:hover { background-color: var(--tiktok); border-color: var(--tiktok); }
+
+.sosmed-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* --- GALERI --- */
+.grid-cerita {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.kartu {
+    background: var(--white);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.kartu:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    border: 2px solid var(--accent);
+}
+
+.kartu img {
+    border-radius: 10px;
+    width: 100%;
+    display: block;
+}
+
+.kartu::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+    transform: skewX(-25deg);
+    transition: 0.7s;
+}
+
+.kartu:hover::after {
+    left: 150%;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: var(--primary);
+    color: white;
+    margin-top: 5rem;
+}
